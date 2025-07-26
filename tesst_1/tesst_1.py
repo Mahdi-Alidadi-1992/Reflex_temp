@@ -179,7 +179,6 @@ def header_section() -> rx.Component:
                         on_click = Header_State.click_on_hero,
                         z_index="1",
                         position="absolute",
-                        loading="lazy",
                         ),
                         position="relative",
                         height="200px",     # Set fixed height for the container
