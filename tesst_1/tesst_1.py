@@ -150,7 +150,7 @@ def header_section() -> rx.Component:
         rx.box(
             height="100%",
             width="100%",
-            background_image="url('Header_image_2.png')",
+            #background_image="url('Header_image_2.png')",
             background_size="cover",
             background_position="center",
             opacity="0.5",
