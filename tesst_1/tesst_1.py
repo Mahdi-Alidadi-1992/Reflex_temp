@@ -172,15 +172,7 @@ def header_section() -> rx.Component:
                         font_family="Comic Sans MS",
                         ),
                     rx.box(
-                        rx.image(
-                        src="/Hero_Background.gif",
-                        height = Header_State.hero_size,
-                        width = "auto",
-                        visibility = rx.cond(Header_State.hero_size > 200,"visible","hidden"),  # Hidden image for the hover effect
-                        z_index="0",
-                        position="absolute",
-                        margin_top="-1em",
-                        ),
+
                         rx.image(
                         src="/Page_icon.png",
                         height = Header_State.hero_size,
