@@ -6,17 +6,16 @@ class Header_State(rx.State):
     """The app state."""
     hero_size: int = 200
     page_scroll_y: int = 0
-    
-    # def click_on_hero(self):
-    #     """Grow then shrink the hero image on click."""
-    #     for i in range(200, 301, 5):
-    #         self.hero_size = i
-    #         time.sleep(0.02)
-    #         yield
-    #     for i in range(300, 199, -5):
-    #         self.hero_size = i
-    #         time.sleep(0.02)
-    #         yield
+    def click_on_hero(self):
+        """Grow then shrink the hero image on click."""
+        for i in range(200, 301, 5):
+            self.hero_size = i
+            time.sleep(0.02)
+            yield
+        for i in range(300, 199, -5):
+            self.hero_size = i
+            time.sleep(0.02)
+            yield
     
 class Sicky_Header_State(rx.State):
     scroll_y: int = 0
@@ -150,7 +149,7 @@ def header_section() -> rx.Component:
         rx.box(
             height="100%",
             width="100%",
-            #background_image="url('Header_image_2.png')",
+            background_image="url('Header_image_2.png')",
             background_size="cover",
             background_position="center",
             opacity="0.5",
@@ -177,7 +176,7 @@ def header_section() -> rx.Component:
                         src="/Page_icon.png",
                         height = Header_State.hero_size,
                         width = "auto",
-                        #on_click = Header_State.click_on_hero,
+                        on_click = Header_State.click_on_hero,
                         z_index="1",
                         position="absolute",
                         loading="lazy",

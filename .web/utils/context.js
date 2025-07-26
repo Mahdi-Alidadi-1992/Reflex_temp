@@ -1,7 +1,8 @@
-import { createContext, useContext, useMemo, useReducer, useState, createElement } from "react"
-import { applyDelta, Event, hydrateClientStorage, useEventLoop, refs } from "$/utils/state.js"
+import { createContext, useContext, useMemo, useReducer, useState, createElement, useEffect } from "react"
+import { applyDelta, Event, hydrateClientStorage, useEventLoop, refs } from "$/utils/state"
+import { jsx } from "@emotion/react";
 
-export const initialState = {"reflex___state____state": {"is_hydrated": false, "router": {"session": {"client_token": "", "client_ip": "", "session_id": ""}, "headers": {"host": "", "origin": "", "upgrade": "", "connection": "", "cookie": "", "pragma": "", "cache_control": "", "user_agent": "", "sec_websocket_version": "", "sec_websocket_key": "", "sec_websocket_extensions": "", "accept_encoding": "", "accept_language": "", "raw_headers": {}}, "page": {"host": "", "path": "", "raw_path": "", "full_path": "", "full_raw_path": "", "params": {}}}}, "reflex___state____state.tesst_1___tesst_1____header__state": {"hero_size": 200, "page_scroll_y": 0}, "reflex___state____state.reflex___state____on_load_internal_state": {}, "reflex___state____state.reflex___state____update_vars_internal_state": {}, "reflex___state____state.tesst_1___tesst_1____sicky__header__state": {"scroll_y": 0, "show_drawer": false}, "reflex___state____state.tesst_1___tesst_1____drawer_state": {"is_open": false}, "reflex___state____state.reflex___state____frontend_event_exception_state": {}}
+export const initialState = {"reflex___state____state": {"is_hydrated_rx_state_": false, "router_rx_state_": {"session": {"client_token": "", "client_ip": "", "session_id": ""}, "headers": {"host": "", "origin": "", "upgrade": "", "connection": "", "cookie": "", "pragma": "", "cache_control": "", "user_agent": "", "sec_websocket_version": "", "sec_websocket_key": "", "sec_websocket_extensions": "", "accept_encoding": "", "accept_language": "", "raw_headers": {}}, "page": {"host": "", "path": "", "raw_path": "", "full_path": "", "full_raw_path": "", "params": {}}, "url": "", "route_id": ""}}, "reflex___state____state.reflex___state____frontend_event_exception_state": {}, "reflex___state____state.reflex___state____on_load_internal_state": {}, "reflex___state____state.reflex___state____update_vars_internal_state": {}, "reflex___state____state.tesst_1___tesst_1____drawer_state": {"is_open_rx_state_": false}, "reflex___state____state.tesst_1___tesst_1____header__state": {"hero_size_rx_state_": 200, "page_scroll_y_rx_state_": 0}, "reflex___state____state.tesst_1___tesst_1____sicky__header__state": {"scroll_y_rx_state_": 0, "show_drawer_rx_state_": false}}
 
 export const defaultColorMode = "system"
 export const ColorModeContext = createContext(null);
@@ -9,12 +10,12 @@ export const UploadFilesContext = createContext(null);
 export const DispatchContext = createContext(null);
 export const StateContexts = {
   reflex___state____state: createContext(null),
-  reflex___state____state__tesst_1___tesst_1____header__state: createContext(null),
+  reflex___state____state__reflex___state____frontend_event_exception_state: createContext(null),
   reflex___state____state__reflex___state____on_load_internal_state: createContext(null),
   reflex___state____state__reflex___state____update_vars_internal_state: createContext(null),
-  reflex___state____state__tesst_1___tesst_1____sicky__header__state: createContext(null),
   reflex___state____state__tesst_1___tesst_1____drawer_state: createContext(null),
-  reflex___state____state__reflex___state____frontend_event_exception_state: createContext(null),
+  reflex___state____state__tesst_1___tesst_1____header__state: createContext(null),
+  reflex___state____state__tesst_1___tesst_1____sicky__header__state: createContext(null),
 }
 export const EventLoopContext = createContext(null);
 export const clientStorage = {"cookies": {}, "local_storage": {}, "session_storage": {}}
@@ -52,9 +53,7 @@ export const initialEvents = () => [
     ...onLoadInternalEvent()
 ]
 
-export const isDevMode = true
-
-export const lastCompiledTimeStamp = "2025-07-26 15:37:31.883449"
+export const isDevMode = false
 
 export function UploadFilesProvider({ children }) {
   const [filesById, setFilesById] = useState({})
@@ -63,7 +62,21 @@ export function UploadFilesProvider({ children }) {
     delete newFilesById[id]
     return newFilesById
   })
-  return createElement(UploadFilesContext, {value:[filesById, setFilesById]}, children);
+  return createElement(
+    UploadFilesContext.Provider,
+    { value: [filesById, setFilesById] },
+    children
+  );
+}
+
+export function ClientSide(component) {
+  return ({ children, ...props }) => {
+    const [Component, setComponent] = useState(null);
+    useEffect(() => {
+      setComponent(component);
+    }, []);
+    return Component ? jsx(Component, props, children) : null;
+  };
 }
 
 export function EventLoopProvider({ children }) {
@@ -73,37 +86,41 @@ export function EventLoopProvider({ children }) {
     initialEvents,
     clientStorage,
   )
-  return createElement(EventLoopContext, {value:[addEvents, connectErrors]}, children);
+  return createElement(
+    EventLoopContext.Provider,
+    { value: [addEvents, connectErrors] },
+    children
+  );
 }
 
 export function StateProvider({ children }) {
   const [reflex___state____state, dispatch_reflex___state____state] = useReducer(applyDelta, initialState["reflex___state____state"])
-  const [reflex___state____state__tesst_1___tesst_1____header__state, dispatch_reflex___state____state__tesst_1___tesst_1____header__state] = useReducer(applyDelta, initialState["reflex___state____state.tesst_1___tesst_1____header__state"])
+  const [reflex___state____state__reflex___state____frontend_event_exception_state, dispatch_reflex___state____state__reflex___state____frontend_event_exception_state] = useReducer(applyDelta, initialState["reflex___state____state.reflex___state____frontend_event_exception_state"])
   const [reflex___state____state__reflex___state____on_load_internal_state, dispatch_reflex___state____state__reflex___state____on_load_internal_state] = useReducer(applyDelta, initialState["reflex___state____state.reflex___state____on_load_internal_state"])
   const [reflex___state____state__reflex___state____update_vars_internal_state, dispatch_reflex___state____state__reflex___state____update_vars_internal_state] = useReducer(applyDelta, initialState["reflex___state____state.reflex___state____update_vars_internal_state"])
-  const [reflex___state____state__tesst_1___tesst_1____sicky__header__state, dispatch_reflex___state____state__tesst_1___tesst_1____sicky__header__state] = useReducer(applyDelta, initialState["reflex___state____state.tesst_1___tesst_1____sicky__header__state"])
   const [reflex___state____state__tesst_1___tesst_1____drawer_state, dispatch_reflex___state____state__tesst_1___tesst_1____drawer_state] = useReducer(applyDelta, initialState["reflex___state____state.tesst_1___tesst_1____drawer_state"])
-  const [reflex___state____state__reflex___state____frontend_event_exception_state, dispatch_reflex___state____state__reflex___state____frontend_event_exception_state] = useReducer(applyDelta, initialState["reflex___state____state.reflex___state____frontend_event_exception_state"])
+  const [reflex___state____state__tesst_1___tesst_1____header__state, dispatch_reflex___state____state__tesst_1___tesst_1____header__state] = useReducer(applyDelta, initialState["reflex___state____state.tesst_1___tesst_1____header__state"])
+  const [reflex___state____state__tesst_1___tesst_1____sicky__header__state, dispatch_reflex___state____state__tesst_1___tesst_1____sicky__header__state] = useReducer(applyDelta, initialState["reflex___state____state.tesst_1___tesst_1____sicky__header__state"])
   const dispatchers = useMemo(() => {
     return {
       "reflex___state____state": dispatch_reflex___state____state,
-      "reflex___state____state.tesst_1___tesst_1____header__state": dispatch_reflex___state____state__tesst_1___tesst_1____header__state,
+      "reflex___state____state.reflex___state____frontend_event_exception_state": dispatch_reflex___state____state__reflex___state____frontend_event_exception_state,
       "reflex___state____state.reflex___state____on_load_internal_state": dispatch_reflex___state____state__reflex___state____on_load_internal_state,
       "reflex___state____state.reflex___state____update_vars_internal_state": dispatch_reflex___state____state__reflex___state____update_vars_internal_state,
-      "reflex___state____state.tesst_1___tesst_1____sicky__header__state": dispatch_reflex___state____state__tesst_1___tesst_1____sicky__header__state,
       "reflex___state____state.tesst_1___tesst_1____drawer_state": dispatch_reflex___state____state__tesst_1___tesst_1____drawer_state,
-      "reflex___state____state.reflex___state____frontend_event_exception_state": dispatch_reflex___state____state__reflex___state____frontend_event_exception_state,
+      "reflex___state____state.tesst_1___tesst_1____header__state": dispatch_reflex___state____state__tesst_1___tesst_1____header__state,
+      "reflex___state____state.tesst_1___tesst_1____sicky__header__state": dispatch_reflex___state____state__tesst_1___tesst_1____sicky__header__state,
     }
   }, [])
 
   return (
     createElement(StateContexts.reflex___state____state,{value: reflex___state____state},
-    createElement(StateContexts.reflex___state____state__tesst_1___tesst_1____header__state,{value: reflex___state____state__tesst_1___tesst_1____header__state},
+    createElement(StateContexts.reflex___state____state__reflex___state____frontend_event_exception_state,{value: reflex___state____state__reflex___state____frontend_event_exception_state},
     createElement(StateContexts.reflex___state____state__reflex___state____on_load_internal_state,{value: reflex___state____state__reflex___state____on_load_internal_state},
     createElement(StateContexts.reflex___state____state__reflex___state____update_vars_internal_state,{value: reflex___state____state__reflex___state____update_vars_internal_state},
-    createElement(StateContexts.reflex___state____state__tesst_1___tesst_1____sicky__header__state,{value: reflex___state____state__tesst_1___tesst_1____sicky__header__state},
     createElement(StateContexts.reflex___state____state__tesst_1___tesst_1____drawer_state,{value: reflex___state____state__tesst_1___tesst_1____drawer_state},
-    createElement(StateContexts.reflex___state____state__reflex___state____frontend_event_exception_state,{value: reflex___state____state__reflex___state____frontend_event_exception_state},
-    createElement(DispatchContext.Provider, {value: dispatchers}, children),
+    createElement(StateContexts.reflex___state____state__tesst_1___tesst_1____header__state,{value: reflex___state____state__tesst_1___tesst_1____header__state},
+    createElement(StateContexts.reflex___state____state__tesst_1___tesst_1____sicky__header__state,{value: reflex___state____state__tesst_1___tesst_1____sicky__header__state},
+    createElement(DispatchContext, {value: dispatchers}, children)
 )))))))  )
 }
