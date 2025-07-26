@@ -1,1 +1,0 @@
-from Pages import Heading

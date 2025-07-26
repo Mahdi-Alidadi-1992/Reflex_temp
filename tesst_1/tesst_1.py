@@ -1,24 +1,22 @@
 import reflex as rx
 import time
 
-#from Pages.Heading import sticky_header, header_section,Sicky_Header_State
-
 # ---------- Header App State ----------
 class Header_State(rx.State):
     """The app state."""
     hero_size: int = 200
     page_scroll_y: int = 0
     
-    def click_on_hero(self):
-        """Grow then shrink the hero image on click."""
-        for i in range(200, 301, 5):
-            self.hero_size = i
-            time.sleep(0.02)
-            yield
-        for i in range(300, 199, -5):
-            self.hero_size = i
-            time.sleep(0.02)
-            yield
+    # def click_on_hero(self):
+    #     """Grow then shrink the hero image on click."""
+    #     for i in range(200, 301, 5):
+    #         self.hero_size = i
+    #         time.sleep(0.02)
+    #         yield
+    #     for i in range(300, 199, -5):
+    #         self.hero_size = i
+    #         time.sleep(0.02)
+    #         yield
     
 class Sicky_Header_State(rx.State):
     scroll_y: int = 0
@@ -187,7 +185,7 @@ def header_section() -> rx.Component:
                         src="/Page_icon.png",
                         height = Header_State.hero_size,
                         width = "auto",
-                        on_click = Header_State.click_on_hero,
+                        #on_click = Header_State.click_on_hero,
                         z_index="1",
                         position="absolute",
                         ),
@@ -232,55 +230,11 @@ def header_section() -> rx.Component:
     )
 
 
-
-# ---------- Question Box ----------
-def question_boxes(question: dict) -> rx.Component:
-    """Creates a box with a question and its answer options."""
-    return rx.box(
-        rx.text(
-            question.get("text", "Question"),
-            font_size="2xl",
-            font_weight="bold",
-            color="black",
-            text_align="left",
-            padding="1em",
-        ),
-        rx.foreach(
-            question.get("answer_options", []),
-            lambda option: rx.button(
-            option,    
-            ),
-        ),
-        width="80%",
-        display="flex",
-        flex_direction="column",
-        align_items="flex-start",
-        background_color="rgba(255, 255, 255,0.8)",
-        border_radius="10px",
-        padding="1em",
-        margin_bottom="1em"
-    )
-
-
-
-
 # ---------- Body Section ----------
 def body_section() -> rx.Component:
-    questions = [
-        {"text": "1. How many kid(s) do you have?", "answer_options": ["1", "2", "3", "4", "5+"]},
-        {"text": "2. What is your kid(s) age?", "answer_options": ["0-3", "4-6", "7-10", "11-14", "15+"]},
-        {"text": "3. How many days a week do you want lunch?", "answer_options": ["1", "2", "3", "4", "5"]},
-        {"text": "4. What is your budget for lunch per day?", "answer_options": ["$5-$10", "$11-$15", "$16-$20", "$21+"]},
-        {"text": "5. Do you have any dietary restrictions?", "answer_options": ["Yes", "No"]},
-        {"text": "6. Do you prefer vegetarian options?", "answer_options": ["Yes", "No"]},
-        {"text": "7. How important is it for you to have organic ingredients?", "answer_options": ["Very Important", "Somewhat Important", "Not Important"]},
-        {"text": "8. Would you like to receive a weekly menu in advance?", "answer_options": ["Yes", "No"]},
-        {"text": "9. How do you prefer to pay for the service?", "answer_options": ["Credit Card", "PayPal", "Bank Transfer"]},
-        {"text": "10. Any additional comments or suggestions?", "answer_options": []}
-    ]
 
     return rx.vstack(
-        rx.foreach(questions, question_boxes),
+        rx.text("Test Body"),
         align_items="center",
         width="100%",
         padding="2em",
