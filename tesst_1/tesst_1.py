@@ -225,7 +225,16 @@ def header_section() -> rx.Component:
 def body_section() -> rx.Component:
 
     return rx.vstack(
-        rx.text("Test Body"),
+        rx.input(id="First_Name", placeholder="First Name", size="3"),
+        rx.input(id="Email", placeholder="Email Address", size="1"),
+        rx.button("Sign up for Early Access + Updates",
+            background_color="rgb(161, 169, 130)",
+            font_family="Comic Sans MS",
+            _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},
+            on_click=rx.call_script(
+                "alert('Thank you for signing up! We will keep you updated.')"
+            ),
+        ),
         align_items="center",
         width="100%",
         padding="2em",
