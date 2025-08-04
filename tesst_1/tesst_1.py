@@ -105,12 +105,11 @@ def sticky_header() -> rx.Component:
             width="100%",
             align_items="center",
         ),
-
         position="fixed",
         top="0",
         width="100%",
         #height="fit-content",
-        max_height="calc(100vh - 20px)",
+        max_height="calc(100vh - 60px)",
         overflow="hidden",
         padding="1em",
         background_color=rx.cond(Sicky_Header_State.scroll_y > 10, "rgba(255, 245, 229, 0.7)", "rgba(255, 245, 229)"),
@@ -126,7 +125,7 @@ def body_section() -> rx.Component:
         rx.heading("Be the first one to know", font_family="Comic Sans MS", font_size="2em", color="rgb(92, 94, 92)",),
         rx.text("About our latest product launches, parenting secrets, and more!", font_family="Comic Sans MS", font_size="1em", color="rgb(92, 94, 92, 0.5)",),
         rx.input(id="First_Name", placeholder="First Name", size="3"),
-        rx.input(id="Email", placeholder="Email Address", size="1"),
+        rx.input(id="Email", placeholder="Email Address", size="3"),
         rx.button("Sign up for Early Access + Updates",
             background_color="rgb(161, 169, 130)",
             font_family="Comic Sans MS",
@@ -146,7 +145,7 @@ def body_section() -> rx.Component:
 def index() -> rx.Component:
     return rx.vstack(
         sticky_header(),
-        rx.spacer(),
+        #rx.spacer(),
         body_section(),
         align_items="center",
         justify_content="top",
