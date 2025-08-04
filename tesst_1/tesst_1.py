@@ -97,7 +97,7 @@ def sticky_header() -> rx.Component:
     return rx.box(
         rx.flex(
             rx.image(
-                src="/Yummak_Brand.png",
+                src="/Brand_image.png",
                 object_fit="contain",
                 width="200px",
                 margin_top="-20px",  # Move it upward
