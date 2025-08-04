@@ -108,8 +108,7 @@ def sticky_header() -> rx.Component:
         position="fixed",
         top="0",
         width="100%",
-        #height="fit-content",
-        max_height="calc(100vh - 60px)",
+        height="100px",
         overflow="hidden",
         padding="1em",
         background_color=rx.cond(Sicky_Header_State.scroll_y > 10, "rgba(255, 245, 229, 0.7)", "rgba(255, 245, 229)"),
@@ -145,8 +144,9 @@ def body_section() -> rx.Component:
 def index() -> rx.Component:
     return rx.vstack(
         sticky_header(),
-        #rx.spacer(),
+        rx.spacer(),
         body_section(),
+        spacing="1",
         align_items="center",
         justify_content="top",
         background_color="rgba(246, 241, 235)",
