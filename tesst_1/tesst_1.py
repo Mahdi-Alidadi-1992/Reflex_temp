@@ -117,7 +117,7 @@ def body_section() -> rx.Component:
     return rx.vstack(
         rx.heading("Be the first one to know", font_family="Comic Sans MS", font_size="2em", color="rgb(92, 94, 92)",),
         rx.text("About our latest product launches, parenting secrets, and more!", font_family="Comic Sans MS", font_size="1em", color="rgb(92, 94, 92, 0.5)",),
-        rx.input(id="First_Name", placeholder="First Name", size="3"),
+        rx.input(id="First_Name", placeholder="First Name", font_size="1.2em", padding="0.8em", width="20em",),
         rx.input(id="Email", placeholder="Email Address", size="3"),
         rx.button("Sign up for Early Access + Updates",
             background_color="rgb(161, 169, 130)",
