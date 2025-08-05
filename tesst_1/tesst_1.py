@@ -34,16 +34,8 @@ class DrawerState(rx.State):
 def drawer_content():
     return rx.drawer.content(
             rx.vstack(
-                rx.text("Order", font_family="Comic Sans MS", _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},),
-                rx.text("How It Works", font_family="Comic Sans MS", _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},),
-                rx.text("On the Menu", font_family="Comic Sans MS", _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},),
-                rx.button("Sign Up / Log In", background_color="rgb(161, 169, 130)", font_family="Comic Sans MS", _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},),
-                rx.image(
-                    src="/Shopping Cart.png",
-                    width="60px",
-                    margin_top="-10px",
-                     _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},
-                    ),   
+                rx.text("Our Story", font_family="Comic Sans MS", _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},),
+                rx.button("Sign Up / Log In", background_color="rgb(161, 169, 130)", font_family="Comic Sans MS", _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},),  
         ),
         on_pointer_down_outside=DrawerState.toggle_drawer,  # <-- Add this line
         top="auto",
@@ -114,7 +106,7 @@ def sticky_header() -> rx.Component:
         overflow="hidden",
         padding="1em",
         background_color=rx.cond(Sicky_Header_State.scroll_y > 10, "rgba(255, 245, 229, 0.7)", "rgba(255, 245, 229)"),
-        transition="background-color 0.1s ease",
+        transition="background-color 0.05s ease",
         z_index="1000",
         box_shadow=rx.cond(Sicky_Header_State.scroll_y > 10, "0 2px 6px rgba(0,0,0,0.2)", "none"),
     )
