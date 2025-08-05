@@ -106,7 +106,7 @@ def sticky_header() -> rx.Component:
             width="100%",
             #align_items="center",
         ),
-        position="sticky",#"fixed",
+        position="fixed",
         top="0",
         width="100%",
         height="100px",
@@ -146,7 +146,7 @@ def index() -> rx.Component:
     return rx.vstack(
         sticky_header(),
         body_section(),
-        spacing="1",
+        spacing="2",
         align_items="center",
         justify_content="top",
         background_color="rgba(246, 241, 235)",
