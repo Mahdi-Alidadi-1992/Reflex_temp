@@ -1,14 +1,16 @@
 import reflex as rx
 from pages.components.header import sticky_header
 from pages.components.email_sign import email_signup_section
+from pages.components.our_story import our_story_section
 from pages.state.sticky_header import Sicky_Header_State
 
 # ---------- Home Page ----------
 @rx.page(route="/")   # optional; if you prefer file-based routing
-def index() -> rx.Component:
+def home() -> rx.Component:
     return rx.vstack(
         sticky_header(),
         email_signup_section(),
+        #our_story_section(),
         spacing="2",
         align_items="center",
         justify_content="top",
@@ -20,4 +22,4 @@ def index() -> rx.Component:
         overflow_y="scroll",
         on_scroll=Sicky_Header_State.update_scroll_y,
         id="my_vstack",
-    )
+    ) 
