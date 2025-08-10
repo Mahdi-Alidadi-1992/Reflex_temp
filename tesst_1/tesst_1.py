@@ -127,6 +127,7 @@ def body_section() -> rx.Component:
                 "alert('Thank you for signing up! We will keep you updated.')"
             ),
         ),
+        rx.text("by clicking sign up, you agree to our terms of service and privacy policy.", font_family="Comic Sans MS", font_size="0.8em", color="rgb(92, 94, 92, 0.5)",),
         align_items="center",
         width="100%",
         padding="2em",
