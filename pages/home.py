@@ -1,7 +1,7 @@
 import reflex as rx
 from pages.components.header import sticky_header
 from pages.components.email_sign import email_signup_section
-from pages.components.our_story import our_story_section
+#from pages.components.our_story import our_story_section
 from pages.state.sticky_header import Sicky_Header_State
 
 # ---------- Home Page ----------

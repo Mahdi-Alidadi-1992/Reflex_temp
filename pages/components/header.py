@@ -9,7 +9,7 @@ def sticky_header() -> rx.Component:
             rx.image(
                 src="/Brand_image.png",
                 object_fit="contain",
-                width="200px",
+                width="170px",
                 margin_top="-40px",  # Move it upward
                 on_click=rx.call_script(
                     "document.getElementById('my_vstack')?.scrollTo({ top: 0, behavior: 'smooth' });"
