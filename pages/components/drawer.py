@@ -43,7 +43,7 @@ def lateral_menu():
             rx.icon(
                 "menu",
                 size=40,
-                color="#a1a982",  # green
+                color="#6b7d67",  # green
                 on_click=DrawerState.toggle_drawer,
                 display=["flex", "flex", "none", "none", "none"],  # Show on mobile only
                 margin_top = "15px"
