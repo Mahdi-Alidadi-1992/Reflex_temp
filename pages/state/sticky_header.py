@@ -10,7 +10,7 @@ class Sicky_Header_State(rx.State):
     @rx.event
     def update_scroll_y(self):
         return rx.call_script(
-            "document.getElementById('my_vstack').scrollTop",
+            "document.getElementById('home_page').scrollTop",
             callback= Sicky_Header_State.set_scroll_y,
         )    
     def open_drawer(self):

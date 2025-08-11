@@ -1,3 +1,24 @@
-* {
-    scroll-behavior: smooth !important;
-} 
+/* global*/
+* { scroll-behavior: smooth !important; }
+
+:root {
+  --brand-green: #A1A982;
+  --brand-text: rgb(92,94,92);
+}
+
+/* helpers */
+.brand-green { color: var(--brand-green) !important; }  /* !important beats inline defaults */
+.brand-input {
+  background:#fff;
+  border:2px solid var(--brand-green);
+  border-radius:10px;
+  color:var(--brand-text);
+  padding:0.6em 0.8em;
+  box-sizing:border-box;
+  width:100%;
+}
+.brand-input:focus {
+  outline:none;
+  box-shadow:0 0 0 2px rgba(161,169,130,0.35);
+}
+.brand-input::placeholder { color: var(--brand-green); opacity: 1; }

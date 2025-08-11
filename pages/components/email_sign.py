@@ -2,6 +2,8 @@
 import reflex as rx
 from pages.state.signup_state import SignUpState
 
+# ---------- Email Signup Section ----------
+
 def email_signup_section() -> rx.Component:
     return rx.vstack(
         rx.heading(
@@ -28,6 +30,7 @@ def email_signup_section() -> rx.Component:
                     font_size="1.2em",
                     width="100%",                       # 👈 fill container
                     style={"boxSizing": "border-box"},
+                    class_name="brand-green",  # use class_name for CSS styles
                 ),
                 rx.input(
                     name="email",
@@ -37,11 +40,12 @@ def email_signup_section() -> rx.Component:
                     font_size="1.2em",
                     width="100%",                       # 👈 fill container
                     style={"boxSizing": "border-box"},
+                    class_name="brand-green",  # use class_name for CSS styles
                 ),
                 rx.button(
                     "Sign up for Early Access + Updates",
                     type="submit",
-                    background_color="rgb(161, 169, 130)",
+                    background_color="rgb(107, 125, 103)",
                     font_family="Comic Sans MS",
                     width="100%",                       # 👈 full-width button on mobile
                     style={"transition": "transform 0.15s ease, opacity 0.15s ease"},
