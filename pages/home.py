@@ -1,16 +1,46 @@
 import reflex as rx
-from pages.components.header import sticky_header
+from pages.components.header import sticky_header, header_styles
+from pages.components.footer import footer_section 
 from pages.components.email_sign import email_signup_section
-#from pages.components.our_story import our_story_section
+from pages.components.testimonials import testimonials_marquee
 from pages.state.sticky_header import Sicky_Header_State
 
+_IO_SCRIPT = """
+(function(){
+  const header = document.getElementById('lp-header');
+  const scroller = document.getElementById('home_page'); // null means use window
+  // A 1px sentinel right under the header
+  let sentinel = document.getElementById('lp-sentinel');
+  if (!sentinel) {
+    sentinel = document.createElement('div');
+    sentinel.id = 'lp-sentinel';
+    sentinel.style.height = '1px';
+    const parent = scroller || document.body;
+    (scroller ? scroller : document.body).insertBefore(
+      sentinel,
+      (scroller ? scroller.firstChild : document.body.firstChild)
+    );
+  }
+  const opts = scroller ? {root: scroller, threshold: [1]} : {threshold: [1]};
+  const io = new IntersectionObserver(([entry]) => {
+    // Less than fully visible => page has scrolled
+    header && header.classList.toggle('is-scrolled', entry.intersectionRatio < 1);
+  }, opts);
+  io.observe(sentinel);
+})();
+"""
+
+
 # ---------- Home Page ----------
-@rx.page(route="/")   # optional; if you prefer file-based routing
+@rx.page(route="/", title="Home")   # optional; if you prefer file-based routing
 def home() -> rx.Component:
     return rx.vstack(
+        header_styles(),
         sticky_header(),
         email_signup_section(),
-        #our_story_section(),
+        testimonials_marquee(speed_s=28),
+        rx.spacer(),
+        footer_section(),
         spacing="2",
         align_items="center",
         justify_content="top",
@@ -20,7 +50,8 @@ def home() -> rx.Component:
         height="100vh",
         overflow_x="hidden",
         overflow_y="scroll",
-        on_scroll=Sicky_Header_State.update_scroll_y,
+        #on_scroll=Sicky_Header_State.update_scroll_y,.
+        on_mount=rx.call_script(_IO_SCRIPT),  
         id="home_page",
         class_name="scroll-root",
     ) 
