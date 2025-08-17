@@ -38,7 +38,7 @@ def testimonials_marquee(
     speed_s: int = 36,
     card_width: str = "clamp(280px, 36vw, 360px)",
     gap: str = "1rem",
-    bg: str = "rgb(245, 230, 222)",      # solid background color
+    bg: str = "rgb(255, 245, 229)",      # solid background color
     border_radius: str = "16px",
     items: list[dict] | None = None,     # optional custom list
 ) -> rx.Component:
@@ -93,4 +93,5 @@ def testimonials_marquee(
         border_radius=border_radius,
         position="relative",
         style={"--t-bg": bg},          # used by the fades above
+        margin_top="2rem",
     )

@@ -4,7 +4,7 @@ import reflex as rx
 #     app_name="tesst_1",
 #     show_built_with_reflex=False,  # <-- hide the badge
 #     plugins=[rx.plugins.TailwindV3Plugin()],
-#     frontend_port=3000,
+#     frontend_port=3001,
 #     backend_port=8000,
 # )
 
@@ -15,7 +15,7 @@ config = rx.Config(
     how_built_with_reflex=False,  # <-- hide the badge
     backend_host="127.0.0.1",
     backend_port=8000,
-
+    frontend_port=3001,
     # Public URLs (used by the frontend to reach your backend)
     api_url="https://lovepacked.ca",
     deploy_url="https://lovepacked.ca",
@@ -23,4 +23,5 @@ config = rx.Config(
     show_built_with_reflex=False,       # hide the badge
     # (optional) silence sitemap warning:
     # disable_plugins=["reflex.plugins.sitemap.SitemapPlugin"],
+    
 )

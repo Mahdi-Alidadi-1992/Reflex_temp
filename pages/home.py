@@ -41,6 +41,7 @@ def home() -> rx.Component:
         email_signup_section(),
         testimonials_marquee(speed_s=60,),
         rx.spacer(),
+        rx.box(min_height = "100px"), #empty box for spacing
         footer_section(),
         spacing="2",
         align_items="center",

@@ -27,6 +27,9 @@ STORY_BOX = rx.box(
     margin_x="auto",
     line_height="1.75",
     font_family="Comic Sans MS",
+    text_align="Justify",
+    font_size=["1em", "1em", "1.2em", "1.2em"],
+    
 )
 
 
@@ -35,11 +38,27 @@ def our_story_section() -> rx.Component:
         rx.heading(
             "Lightening your load for more bonding moments",
             font_family="Comic Sans MS",
-            font_size="2em",
+            font_size=["1.5em", "1.5em", "2em", "2em"],
             color="rgb(92, 94, 92)",
             white_space="pre-wrap",     # respects your \n
+            text_align="center",
+        ),
+        rx.image(
+            src="/our_story_image.webp",
+            width="300px",
+            height="300px",
+            object_fit="cover",
+            border_radius="10px",
         ),
         STORY_BOX,
+        rx.image(
+            src="/Signature.webp",
+            width="100px",
+            height="100px",
+            object_fit="cover",
+            margin_top="-4em",
+            
+        ),
         align_items="center",
         width="100%",
         padding="2em 2em 0 2em",

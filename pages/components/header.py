@@ -9,7 +9,7 @@ def header_styles() -> rx.Component:
         transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
       }
       #lp-header.is-scrolled {
-        background: rgba(255, 245, 229,0.5);
+        background: rgba(255, 245, 229,0.7);
         border-bottom: 1px solid rgba(0,0,0,0.08);
         box-shadow: 0 8px 20px -12px rgba(0,0,0,0.18);
       }
@@ -26,7 +26,7 @@ def sticky_header() -> rx.Component:
                 src="/Brand_image.png",
                 object_fit="contain",
                 width="170px",
-                margin_top="-40px",  # Move it upward
+                margin_top="-30px",  # Move it upward
                 on_click=rx.call_script("document.querySelector('.scroll-root')?.scrollTo({ top: 0, behavior: 'smooth' });"),
                 _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},
             ),
@@ -43,7 +43,18 @@ def sticky_header() -> rx.Component:
                     style={"textDecoration": "none", "color": "inherit"},  # looks like plain text
                 ),
                 rx.link(
-                    rx.button("Sign Up / Log In", background_color="rgb(107, 125, 103)", font_family="Comic Sans MS", _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},),
+                rx.text(
+                        "Survey",
+                        color="rgb(92, 94, 92)",
+                        font_family="Comic Sans MS",
+                        _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},
+                    ),
+                    href="https://tally.so/r/nPqQLe",
+                    style={"textDecoration": "none", "color": "inherit"},  # looks like plain text
+                    is_external=True,  # adds target="_blank" rel="noopener noreferrer"
+                ),
+                rx.link(
+                    rx.button("Sign Up", background_color="rgb(159, 171, 160)", font_family="Comic Sans MS", _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},),
                     href="/",
                 ),
                 spacing="4",
