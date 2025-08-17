@@ -1,5 +1,5 @@
 import reflex as rx
-from pages import home, our_story  # thanks to pages/__init__.py
+from pages import home, our_story, admin  # thanks to pages/__init__.py
 
 
 # ---------- App Setup ----------

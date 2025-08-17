@@ -3,7 +3,7 @@ from pages.components.header import sticky_header, header_styles
 from pages.components.footer import footer_section 
 from pages.components.email_sign import email_signup_section
 from pages.components.testimonials import testimonials_marquee
-from pages.state.sticky_header import Sicky_Header_State
+from pages.components.Survay_Section import survay_section
 
 _IO_SCRIPT = """
 (function(){
@@ -37,8 +37,9 @@ def home() -> rx.Component:
     return rx.vstack(
         header_styles(),
         sticky_header(),
+        survay_section(),
         email_signup_section(),
-        testimonials_marquee(speed_s=28),
+        testimonials_marquee(speed_s=60,),
         rx.spacer(),
         footer_section(),
         spacing="2",
@@ -50,7 +51,6 @@ def home() -> rx.Component:
         height="100vh",
         overflow_x="hidden",
         overflow_y="scroll",
-        #on_scroll=Sicky_Header_State.update_scroll_y,.
         on_mount=rx.call_script(_IO_SCRIPT),  
         id="home_page",
         class_name="scroll-root",

@@ -27,9 +27,6 @@ def sticky_header() -> rx.Component:
                 object_fit="contain",
                 width="170px",
                 margin_top="-40px",  # Move it upward
-                # on_click=rx.call_script(
-                #     "document.getElementById('my_vstack')?.scrollTo({ top: 0, behavior: 'smooth' });"
-                # ),
                 on_click=rx.call_script("document.querySelector('.scroll-root')?.scrollTo({ top: 0, behavior: 'smooth' });"),
                 _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},
             ),
