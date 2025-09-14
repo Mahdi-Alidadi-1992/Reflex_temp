@@ -26,7 +26,8 @@ STORY_BOX = rx.box(
     padding="2rem",
     margin_x="auto",
     line_height="1.75",
-    font_family="Comic Sans MS",
+    font_family="'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+    font_weight="400",
     text_align="Justify",
     font_size=["1em", "1em", "1.2em", "1.2em"],
     
@@ -36,8 +37,10 @@ STORY_BOX = rx.box(
 def our_story_section() -> rx.Component:
     return rx.vstack(
         rx.heading(
-            "Lightening your load for more bonding moments",
-            font_family="Comic Sans MS",
+            "Lightening your load for more\n bonding moments",
+            line_height="1.2",
+            font_family="'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+            font_weight="600",
             font_size=["1.5em", "1.5em", "2em", "2em"],
             color="rgb(92, 94, 92)",
             white_space="pre-wrap",     # respects your \n
@@ -49,6 +52,7 @@ def our_story_section() -> rx.Component:
             height="300px",
             object_fit="cover",
             border_radius="10px",
+            margin_top="2em",
         ),
         STORY_BOX,
         rx.image(

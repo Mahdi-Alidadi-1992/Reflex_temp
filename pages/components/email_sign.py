@@ -6,29 +6,23 @@ from pages.state.signup_state import SignUpState
 # ---------- Email Signup Section ----------
 
 def email_signup_section() -> rx.Component:
-    return rx.hstack(
-        rx.image(
-            src="/signup_pic.webp",
-            width="300px",
-            height="300px",
-            object_fit="cover",
-            border_radius="10px",
-            display=["none", "none", "block", "block"],  # responsive visibility
-        ), 
-        rx.vstack(
+    return rx.vstack(
             rx.heading(
                 "Be the first one to know",
-                font_family="Comic Sans MS",
+                font_family="'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+                font_weight="600",
                 font_size=["1.5em", "1.5em", "2em", "2em"],
                 color="rgb(92, 94, 92)",
                 text_align="center",
             ),
             rx.text(
                 "Sign up to get updates and play a part in shaping healthier, easier mealtimes for parents.",
-                font_family="Comic Sans MS",
+                font_family="'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+                font_weight="400",
                 font_size=["1","1","1.2em","1.2em"],
                 color="rgb(84, 102, 80,0.75)",
                 text_align="center",
+                max_width="450px",  # 👈 max width for readability
             ),
 
             # Responsive container: fills width, but caps to ~22rem on larger screens
@@ -56,10 +50,10 @@ def email_signup_section() -> rx.Component:
                         "Sign up",
                         type="submit",
                         white_space="nowrap",              # 👈 don't wrap to a second line
-                        #font_size={"base": "1.2rem", "md": "1.4rem"},  # 👈 responsive sizing
                         font_size="1.2em",                  # 👈 consistent font size
                         background_color="rgb(159, 171, 160)",
-                        font_family="Comic Sans MS",
+                        font_family="'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+                        font_weight="600",
                         width="100%",                       # 👈 full-width button on mobile
                         style={"transition": "transform 0.15s ease, opacity 0.15s ease"},
                         _hover={"transform": "translateY(-1px) scale(1.03)"},
@@ -122,9 +116,5 @@ def email_signup_section() -> rx.Component:
             align_items="center",
             width="100%",
             padding="2em 0",  # vertical padding only; horizontal handled in box
-            id="target",
+            id="Sing_Up",#"target",
         ),
-        align_items="center",
-        width="90%",
-        #padding="2em 2em 0 2em",
-    )

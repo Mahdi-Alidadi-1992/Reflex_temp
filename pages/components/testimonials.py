@@ -67,7 +67,15 @@ def testimonials_marquee(
 
     return rx.box(
         style_tag(css),
-
+        rx.text( "You’re Not Alone in This",
+                size="3",
+                color="rgb(92, 94, 92)",
+                font_family="'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+                font_weight="600",
+                margin_top="1rem",
+                margin_bottom="1rem",
+                text_align="center",
+            ),
         # Edge fades (use CSS var so fades match the background color)
         rx.box(
             position="absolute", left="0", top="0", bottom="0", width="60px",
@@ -93,5 +101,5 @@ def testimonials_marquee(
         border_radius=border_radius,
         position="relative",
         style={"--t-bg": bg},          # used by the fades above
-        margin_top="2rem",
+        margin_top=["-5rem","-6rem","-8rem","-10rem"],
     )

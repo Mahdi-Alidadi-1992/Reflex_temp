@@ -7,6 +7,18 @@ def drawer_content():
     return rx.drawer.content(
             rx.vstack(
                 rx.link(
+                rx.text(
+                        "Home Page",
+                        color="rgb(92, 94, 92)",
+                        font_family="'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+                        font_weight="600",
+                        _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},
+                    ),
+                    href="/",
+                    style={"textDecoration": "none", "color": "inherit"},  # looks like plain text
+                    on_click=DrawerState.toggle_drawer,  # <-- Close drawer on click
+                ),
+                rx.link(
                     rx.text(
                             "Our Story",
                             font_family="Comic Sans MS",
@@ -31,7 +43,8 @@ def drawer_content():
                 ),
                 rx.link(
                     rx.button("Sign Up", background_color="rgb(159, 171, 160)", font_family="Comic Sans MS", _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},),
-                    href="/",
+                    href="/#Sing_Up",
+                    style={"scroll-behavior": "smooth"},
                     on_click=DrawerState.toggle_drawer,  # <-- Close drawer on click
                 ),  
         ),

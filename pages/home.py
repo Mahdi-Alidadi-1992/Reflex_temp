@@ -4,6 +4,7 @@ from pages.components.footer import footer_section
 from pages.components.email_sign import email_signup_section
 from pages.components.testimonials import testimonials_marquee
 from pages.components.Survay_Section import survay_section
+from pages.components.gift_section import gift_section
 
 _IO_SCRIPT = """
 (function(){
@@ -38,10 +39,10 @@ def home() -> rx.Component:
         header_styles(),
         sticky_header(),
         survay_section(),
-        email_signup_section(),
+        gift_section(),
         testimonials_marquee(speed_s=60,),
+        email_signup_section(),
         rx.spacer(),
-        rx.box(min_height = "100px"), #empty box for spacing
         footer_section(),
         spacing="2",
         align_items="center",

@@ -9,7 +9,7 @@ def footer_section() -> rx.Component:
                 rx.image(
                     src="/Brand_image.png",
                     object_fit="contain",
-                    width="150px",
+                    width="140px",
                     margin_top="-30px",  
                     on_click=rx.call_script("document.querySelector('.scroll-root')?.scrollTo({ top: 0, behavior: 'smooth' });"),
                     _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},
@@ -17,10 +17,11 @@ def footer_section() -> rx.Component:
                 rx.text(
                     "Rooted in Care and Healthy Growth;\nDesigned to Ease Your Day!",
                     color="rgb(92, 94, 92)",
-                    font_family="Comic Sans MS",
+                    font_family="'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+                    font_weight="400",
                     font_size=["0.5em", "0.5em", "0.8em", "0.8em"],
                     text_align="center",
-                    margin_top="-40px",
+                    margin_top="-30px",
                     white_space="pre-line",
                 ),
                 height="100px",
@@ -31,15 +32,17 @@ def footer_section() -> rx.Component:
             rx.hstack(
                 rx.vstack(
                     rx.text("About",
-                            color="rgb(0, 0, 0)",
-                            font_family="Comic Sans MS",
+                            color="rgb(92, 94, 92)",
+                            font_family="'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+                            font_weight="600",
                             font_size=["0.8em", "0.8em", "1em", "1em"],
                             ),
                     rx.link(
                             rx.text(
                                 "Our Story",
                                 color="rgb(92, 94, 92)",
-                                font_family="Comic Sans MS",
+                                font_family="'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+                                font_weight="400",
                                 _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},
                                 font_size=["0.8em", "0.8em", "1em", "1em"],
                                 ),
@@ -50,7 +53,8 @@ def footer_section() -> rx.Component:
                             rx.text(
                                 "Survey",
                                 color="rgb(92, 94, 92)",
-                                font_family="Comic Sans MS",
+                                font_family="'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+                                font_weight="400",
                                 _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},
                                 font_size=["0.8em", "0.8em", "1em", "1em"],
                                 ),
@@ -64,13 +68,17 @@ def footer_section() -> rx.Component:
                 
                 rx.vstack(
                     rx.text("Support",
-                            color="rgb(0, 0, 0)",
-                            font_family="Comic Sans MS",
+                            color="rgb(92, 94, 92)",
+                            font_family="'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+                            font_weight="600",
                             font_size=["0.8em", "0.8em", "1em", "1em"],
                             ),
                     rx.dialog.root(
                             rx.dialog.trigger(
-                                rx.text("Contact us",color="rgb(92, 94, 92)",font_family="Comic Sans MS",
+                                rx.text("Contact us",
+                                    color="rgb(92, 94, 92)",
+                                    font_family="'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+                                    font_weight="400",
                                     _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},
                                     cursor="pointer",
                                     font_size=["0.8em", "0.8em", "1em", "1em"],
