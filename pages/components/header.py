@@ -25,8 +25,8 @@ def sticky_header() -> rx.Component:
             rx.image(
                 src="/Brand_image.png",
                 object_fit="contain",
-                width="170px",
-                margin_top="-30px",  # Move it upward
+                width="140px",
+                margin_top="-15px",  # Move it upward
                 on_click=rx.call_script("document.querySelector('.scroll-root')?.scrollTo({ top: 0, behavior: 'smooth' });"),
                 _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},
             ),
@@ -34,9 +34,21 @@ def sticky_header() -> rx.Component:
             rx.hstack(
                 rx.link(
                 rx.text(
+                        "Home Page",
+                        color="rgb(92, 94, 92)",
+                        font_family="'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+                        font_weight="600",
+                        _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},
+                    ),
+                    href="/",
+                    style={"textDecoration": "none", "color": "inherit"},  # looks like plain text
+                ),
+                rx.link(
+                rx.text(
                         "Our Story",
                         color="rgb(92, 94, 92)",
-                        font_family="Comic Sans MS",
+                        font_family="'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+                        font_weight="600",
                         _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},
                     ),
                     href="/our-story",
@@ -46,7 +58,8 @@ def sticky_header() -> rx.Component:
                 rx.text(
                         "Survey",
                         color="rgb(92, 94, 92)",
-                        font_family="Comic Sans MS",
+                        font_family="'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+                        font_weight="600",
                         _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},
                     ),
                     href="https://tally.so/r/nPqQLe",
@@ -54,12 +67,19 @@ def sticky_header() -> rx.Component:
                     is_external=True,  # adds target="_blank" rel="noopener noreferrer"
                 ),
                 rx.link(
-                    rx.button("Sign Up", background_color="rgb(159, 171, 160)", font_family="Comic Sans MS", _hover={"transform": "scale(1.1)", "transition": "transform 0.2s"},),
-                    href="/",
+                    rx.button("Sign Up",
+                              background_color="rgb(159, 171, 160)",
+                              font_family="'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+                                font_weight="600",
+                              _hover={"transform": "scale(1.1)","transition": "transform 0.2s"},
+                              ),
+                    
+                    style={ "scroll-behavior": "smooth" },
+                    href="/#Sing_Up",
                 ),
                 spacing="4",
                 display=["none", "none", "flex", "flex", "flex"],
-                margin_top="15px",
+                margin_top="20px",
             ),
             # Mobile Hamburger Icon
             lateral_menu(),

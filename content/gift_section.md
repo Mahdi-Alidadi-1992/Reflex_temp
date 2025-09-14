@@ -1,0 +1,1 @@
+As a small thank you, there’s a chance to be entered into a draw for a C$100 Indigo Kids gift card, with details at the end of the survey.
